@@ -13,6 +13,8 @@ Códigos aleatórios em ' c '
     4º Tiexpert.net/programacao/c/index.php
   
     5º Urionlinejudge.com.br/judge/en/login
+    
+    6º Stackoverflow.com/questions/tagged/c
 
 ## Ferramentas
 
