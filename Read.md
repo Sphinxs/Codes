@@ -35,3 +35,13 @@ Códigos aleatórios em ' c '
       7º Atom.io/packages/gcc-make-run
       
       8º Atom.io/packages/language-c
+      
+## Compilação Extra
+
+    1º clang -Wall Arquivo.cpp -o Executavel
+    
+    2º gcc -Wall Arquivo.c -o Executavel
+    
+    3º g++ Executavel Arquivo.cpp
+    
+    4º make Arquivo || make Arquivo.cpp && ./Arquivo
