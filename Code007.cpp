@@ -1,11 +1,4 @@
 
-/*
-	<time> De fato obtém o tempo
-	<locale> Indica o idioma utf-8
-	<stdio> Entrada e saída padrão
-	<stdint> Auxilia na formatação
-*/
-
 // Diretivas de pré processamento
 
 # include <stdio.h>
@@ -16,6 +9,12 @@
 
 # include <locale.h>
 
+/*
+	<time> De fato obtém o tempo
+	<locale> Indica o idioma utf-8
+	<stdio> Entrada e saída padrão
+	<stdint> Auxilia na formatação
+*/
 
 // Argumentos de linha de comando ( Argc, Argv )
 
