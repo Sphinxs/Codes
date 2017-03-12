@@ -10,7 +10,7 @@
 /*
     Programa em linguagem ' c ' que verifica se um número é primo ou não.
 
-    Lembrando que números primos são aqueles que apenas pode ser divididos
+    Lembrando que números primos são aqueles que apenas podem ser divididos
     por 1 e si mesmos.
 
 */
