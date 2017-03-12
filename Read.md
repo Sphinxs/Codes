@@ -2,6 +2,8 @@
 
 Códigos aleatórios em ' c '
 
+( Por motivos de sistema operacional eu utilizo a extensão `cpp`, mas tenha em mente que essa extensão se trata do `C++` e o conteúdo puramente `c` ! )
+
 ## Meios de estudo
 
     1º Code-reference.com
