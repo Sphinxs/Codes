@@ -27,3 +27,11 @@ Códigos aleatórios em ' c '
       3º Geany.org
       
       4º Codeblocks.org
+    
+      5º Atom.io/packages/linter-gcc
+      
+      6º Atom.io/packages/gpp-compiler
+      
+      7º Atom.io/packages/gcc-make-run
+      
+      8º Atom.io/packages/language-c
