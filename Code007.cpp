@@ -1,12 +1,12 @@
 
 /*
 	<time> De fato obtém o tempo
-	<locale> Indica o idioma cods
+	<locale> Indica o idioma utf-8
 	<stdio> Entrada e saída padrão
 	<stdint> Auxilia na formatação
 */
 
-// Direticas de pré processamento
+// Diretivas de pré processamento
 
 # include <stdio.h>
 
@@ -25,7 +25,7 @@ int main ( int argc, char const *argv[] ) {
 
 	time_t resultado = time(NULL);
 
-	// Caso retorne ' -1 ' o valor retornado foi estourado
+	// Caso retorne ' -1 ' o valor retornado foi estourado ( Undexflow / Overflow )
 
     if( resultado != -1) {
 
