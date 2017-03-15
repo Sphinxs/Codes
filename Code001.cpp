@@ -1,5 +1,5 @@
 
-# include <stdio.h>
+# include <stdio.h> 
 
 typedef struct sPes {
         char nome[30];
