@@ -1,5 +1,5 @@
 
-// Diretivas de pré processamento
+// Diretivas de pré processamento 
 
 # include <stdio.h>
 
