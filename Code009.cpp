@@ -27,7 +27,7 @@ bool pop (int &send);
 
 int items ();
 
-//
+// 
 
 int main ( void ) {
 
