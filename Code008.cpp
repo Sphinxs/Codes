@@ -32,7 +32,7 @@ int main ( void ) {
             if (num % cont == 0) {
                 apoio++;
             }
-        }
+        } 
 
         if (apoio == 2) {
             printf("\n%hi - É primo !\n", num);
