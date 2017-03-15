@@ -33,6 +33,6 @@ int main (void) {
         
                 printf("%s %s %i %i",carro.marca,carro.marca,carro.portas,carro.preco);
 
-    fclose(bin);
+    fclose(bin); 
 
 }
