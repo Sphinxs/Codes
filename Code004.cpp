@@ -35,7 +35,7 @@ void imprime(Fornecedor *forn, int ini, int fim){
 }
 
 
-int main(){
+int main() { 
 
     FILE* f;
 
