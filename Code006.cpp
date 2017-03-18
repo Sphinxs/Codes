@@ -31,7 +31,7 @@ int main (void) {
 
         gravado = fread( &carro , sizeof(Peso), 1, bin);
         
-                printf("%s %s %i %i",carro.marca,carro.marca,carro.portas,carro.preco);
+                printf("%s %s %i %i",carro.marca,carro.cor,carro.portas,carro.preco);
 
     fclose(bin); 
 
