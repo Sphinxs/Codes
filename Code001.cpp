@@ -29,9 +29,11 @@ int main(){
 
         vet = (Pessoa*) malloc (n*sizeof(Pessoa));
 
-        int i, maior, ind;
+        int maior, ind;
+        
+        int register i = 0;
 
-        for(i=0; i<n; i++){
+        for( ; i<n; i++){
 
             fscanf(f, "%s", vet[i].nome);
 
