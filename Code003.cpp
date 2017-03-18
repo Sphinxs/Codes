@@ -13,7 +13,11 @@ typedef struct sFornecedor{
         char telefone[20];
 } Fornecedor;
 
-int main(){
+void buf () {
+        setbuf(stdin,NULL);
+}
+
+int main (void) {
 
     FILE* f;
 
@@ -25,10 +29,10 @@ int main(){
 
        system("pause");
 
-       return 0;
+       return 1;
     }
 
-    int n;
+    int n = 0;
 
     printf("Digite o numero de fornecedores:\n");
     scanf("%d", &n);
@@ -41,30 +45,26 @@ int main(){
 
     forn = (Fornecedor*) malloc (n*sizeof(Fornecedor));
 
-    int i;
+    int i = 0;
 
-    for(i=0; i<n; i++){
+    for( ; i<n; i++){
 
-        printf("Digite o nome do fornecedor:\n");
-            fflush(stdin);
-                gets(forn[i].nome);
+        printf("Digite o nome do fornecedor:\n"); buf();
+        gets(forn[i].nome);
 
         printf("Digite a quantidade de produtos:\n");
-            scanf("%d", &forn[i].produtos);
+        scanf("%d", &forn[i].produtos);
 
-        printf("Digite o telefone do fornecedor:\n");
-            fflush(stdin);
-                gets(forn[i].telefone);
+        printf("Digite o telefone do fornecedor:\n"); uf();
+        gets(forn[i].telefone);
 
         printf("Digite os dados de endereco:\n");
 
-        printf("Digite o nome da rua:\n");
-            fflush(stdin);
-                gets(forn[i].end.rua);
+        printf("Digite o nome da rua:\n"); uf();
+        gets(forn[i].end.rua);
 
-        printf("Digite o numero:\n");
-            fflush(stdin);
-                scanf("%d", &forn[i].end.num);
+        printf("Digite o numero:\n"); buf();
+        scanf("%d", &forn[i].end.num);
 
         //Gravando no arquivo
 
@@ -82,8 +82,6 @@ int main(){
     free(forn);
 
     fclose(f);
-
-    system("pause");
 
     return 0;
 
