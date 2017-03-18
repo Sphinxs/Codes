@@ -2,6 +2,8 @@
 
 Códigos aleatórios em ' c '
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/10e10a97abbc46bfa8ebfcf334a5038f)](https://www.codacy.com/app/Sphinxs/Codes?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sphinxs/Codes&amp;utm_campaign=Badge_Grade)
+
 ( Por motivos de sistema operacional eu utilizo a extensão `cpp`, mas tenha em mente que essa extensão se trata do `C++` e o conteúdo puramente `c` ! )
 
 ## Meios de estudo
