@@ -1,6 +1,7 @@
 
 #include <stdio.h> 
 
+
 typedef struct sEnd{
         char rua[30];
         int num;
@@ -16,6 +17,7 @@ typedef struct sFornecedor{
 void buf () {
         setbuf(stdin,NULL);
 }
+
 
 int main (void) {
 
