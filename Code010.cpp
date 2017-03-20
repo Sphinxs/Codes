@@ -11,7 +11,7 @@ int main ( void ) {
 
     for ( ; con < sizeof(vet - 1) ; con++) {
         if (vet[con] > vet[con + 1]) {
-            res = 0;
+            res = 0; exit(1);
         }
     }
 
