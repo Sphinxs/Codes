@@ -7,14 +7,6 @@
 
 # include <locale.h>
 
-/*
-    Programa em linguagem ' c ' que verifica se um número é primo ou não.
-
-    Lembrando que números primos são aqueles que apenas podem ser divididos
-    por 1 e si mesmos.
-
-*/
-
 int main ( void ) {
 
     setlocale(LC_ALL,"");
