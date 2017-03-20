@@ -5,13 +5,15 @@
 
 # include <string.h>
 
+
 typedef struct Pessoa {
 
     char marca[20], cor[15];
 
     int portas, preco;
 
-}Peso;
+} Peso;
+
 
 int main (void) {
 
@@ -34,5 +36,7 @@ int main (void) {
                 printf("%s %s %i %i",carro.marca,carro.cor,carro.portas,carro.preco);
 
     fclose(bin); 
-
+    
+    return 0;
+    
 }
