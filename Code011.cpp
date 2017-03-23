@@ -73,7 +73,7 @@ int main ( int argv, char * argc [] ) {
 
     ImpAutor (Poin, Tam); // Okay
 
-    // ImpPages (Poin, Tam); // Okay
+    ImpPages (Poin, Tam); // Okay
 
 
     free (Poin);
@@ -93,13 +93,13 @@ void Preenche (Livros * Poin, int Tam) {
 
         system("clear");
 
-        printf("\n%hi - Nome do livro : ", cont + 1);
+        printf("\n%hi - Nome do livro : ", cont);
         fgets(Poin[cont].nome, sizeof(Poin[cont].nome), stdin);
 
-        printf("\n%hi - Nome do autor : ", cont + 1);
+        printf("\n%hi - Nome do autor : ", cont);
         fgets(Poin[cont].autor, sizeof(Poin[cont].autor), stdin);
 
-        printf("\n%hi - Número de páginas : ", cont + 1);
+        printf("\n%hi - Número de páginas : ", cont);
         scanf("%d", &Poin[cont].paginas);
 
         cont ++;
