@@ -39,7 +39,7 @@ int main ( void ) { setlocale(LC_ALL,"");
 
     while ( true ) {
 
-        printf("\n\n1 - Cadastrar Aluno\n\n2 - Cadastrar Série\n\nX - Para Sair\n\n3 - Imprime Todos\n\n");
+        printf("\n\n1 - Cadastrar Aluno\n\n2 - Cadastrar Série\n\n3 - Imprime Todos\n\nX - Para Sair\n\n");
 
         printf("\nInforme sua escolha : ");
         scanf("%d", &Escolha);
@@ -155,7 +155,7 @@ void ImpAluno (Aluno * Point, const int * Tam) {
 		Clear ();
 
 		for ( ; Con <= * Tam; Con ++ ) {
-			printf("\n%d - Aluno %s já assistiu %d séries.\n", Con, Point[Con].anome,Point[Con].assistidos);
+			printf("\n\t%d - Aluno %s já assistiu %d séries.\n", Con, Point[Con].anome,Point[Con].assistidos);
 		}
 
 	} else {
