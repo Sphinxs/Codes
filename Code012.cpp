@@ -110,7 +110,7 @@ void CadSerie (Aluno * Point, const int * Tam) {
 
     for ( ; Con < 3; Con ++ ) {
         if ( strcasecmp(Nome, Point[Con].anome) == 0){
-            Indice = Con; break; printf("\n\nCadastro de séries do aluno %s :\n",Point[Con].anome);
+            Indice = Con; // break; printf("\n\nCadastro de séries do aluno %s :\n",Point[Con].anome);
         }
     }
 
