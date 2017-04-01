@@ -63,7 +63,7 @@ void push (int value) {
 		exit(1);
 	} else{
 		inst ++; stack[inst] = value;
-	}
+	} 
 }
 
 
