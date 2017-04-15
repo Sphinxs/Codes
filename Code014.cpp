@@ -41,8 +41,6 @@ void showmedia ( Node ** list );
 
 int main ( int argv, const char * argc [] ) {
 
-    unsigned short int out = 0;
-
     Node * list = NULL;
 
     empty ( &list ) == 1 ? printf("\n\nEmpty !\n\n") : printf("\n\nHave Itens !\n\n");
@@ -281,7 +279,7 @@ void removeall ( Node ** list ) {
 
 void showmedia ( Node ** list ) {
 
-    float med = 0.0;
+    float med;
 
     Node * aux = ( * list );
 
