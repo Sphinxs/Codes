@@ -5,6 +5,8 @@
 
 # include <stdlib.h>
 
+# include <locale.h>
+
 
 typedef struct {
     char name[25];
@@ -38,38 +40,77 @@ void removeall ( Node ** list );
 
 void showmedia ( Node ** list );
 
+Node * searchreg ( Node ** list, int regis ); //
+
+void transposition ( Node ** list, char * name ); //
+
 
 int main ( int argv, const char * argc [] ) {
 
+    setlocale ( LC_ALL, " " );
+
     Node * list = NULL;
 
-    empty ( &list ) == 1 ? printf("\n\nEmpty !\n\n") : printf("\n\nHave Itens !\n\n");
+    unsigned short int out = 0, opt = 0;
 
-    addstart ( &list );
+    do {
 
-    clear ();
 
-    addend ( &list );
+        printf("\n0 - Go Out\n\n1 - Add End\n\n2 - Add Start\n\n3 - Show List\n\n4 - Higher note\n\n5 - Remove List\n");
 
-    clear ();
+        printf("\n6 - Show Medias\n");
 
-    noteone ( &list );
 
-    // showlist ( &list );
+        printf("\nWhat's your option : ");
+        scanf("%hu", &opt);
 
-    showmedia ( &list );
+        switch ( opt ) {
 
-    removeall ( &list );
+            case 0:
+                exit (0);
+            break;
 
-    showlist ( &list );
-    
+            case 1:
+                clear ();  addend ( &list );
+            break;
+
+            case 2:
+                clear (); addstart ( &list );
+            break;
+
+            case 3:
+                clear (); showlist ( &list );
+            break;
+
+            case 4:
+                clear (); noteone ( &list );
+            break;
+
+            case 5:
+                clear (); removeall ( &list );
+            break;
+
+            case 6:
+                clear (); showmedia ( &list );
+            break;
+
+            default:
+                exit(1);
+
+        }
+
+        printf("\nZero to exit or other number to continue : ");
+        scanf("%hu", &out); clear ();
+
+    } while ( out != 0 );
+
     return 0;
 
 }
 
 void clear ( void ) {
 
-    system ("clear");
+    system ("clear || cls");
 
 }
 
@@ -95,8 +136,6 @@ Node * newnode () {
 
 void getdata ( Node ** temp ) {
 
-    // register int cont = 0;
-
     printf("\nWhat's your registry : ");
     scanf("%d", &( * temp ) -> info.regis);
 
@@ -104,15 +143,6 @@ void getdata ( Node ** temp ) {
 
     printf("\nWhat's your name : ");
     fgets(( * temp ) -> info.name, 25, stdin);
-
-    /* // With for I have problems
-
-        for ( ; cont ++ < 3 ; ) {
-            printf("\n\tWhat's your note in proof %d : ", cont);
-            scanf("%f", &( * temp ) -> info.proof [cont]);
-        }
-
-    */
 
     printf("\n\tWhat's your note in proof 1 : ");
     scanf("%f", &( * temp ) -> info.proof [0]);
@@ -131,7 +161,7 @@ int addstart ( Node ** list ) {
 
     if ( cell == NULL ){
 
-        return 0;
+        return 0; // Error
 
     }
 
@@ -195,7 +225,7 @@ void showlist ( Node ** list ) {
 
     if ( empty ( list ) ) {
 
-        printf("\nList empty !\n\n");
+        printf("\nList empty - Show List\n\n");
 
     } else {
 
@@ -211,7 +241,7 @@ void showlist ( Node ** list ) {
 
         while ( aux != NULL ) {
 
-            printf("\n\t( %s - %d )\n", aux -> info.name, ( int ) aux -> info.regis);
+            printf("\n\tName : %s - Registry : %d", aux -> info.name, ( int ) aux -> info.regis);
 
             	printf("\n\t\tProof 1 : %.2f", aux -> info.proof [0]);
 
@@ -233,7 +263,7 @@ void noteone ( Node ** list ) {
 
     if ( aux == NULL ) {
 
-    	exit (1);
+    	printf("\nList Empty - Note\n"); return;
 
     }
 
@@ -263,6 +293,11 @@ void removeall ( Node ** list ) {
 
     Node * tmp = ( * list ), * aux;
 
+    if ( empty ( list ) ) {
+
+        printf("\nList Empty - Remove\n"); return;
+    }
+
     while ( tmp != NULL ) {
 
         aux = tmp;
@@ -275,22 +310,94 @@ void removeall ( Node ** list ) {
 
     ( * list ) = NULL;
 
+    printf("\nRemoved !\n");
+
 }
 
 void showmedia ( Node ** list ) {
 
-    float med;
+    float med = 0.0;
 
     Node * aux = ( * list );
+
+    if ( empty ( list ) ) {
+
+        printf("\nList Empty - Media\n"); return;
+
+    }
 
     while( aux != NULL ) {
 
         med = ( aux -> info.proof[0] + aux -> info.proof[1] + aux -> info.proof[2] ) / 3;
 
-        printf("\n%s - %d - %.2f\n", aux -> info.name, aux -> info.regis, med);
+        printf("\nName : %s - Registry : %d - Note : %.2f\n", aux -> info.name, aux -> info.regis, med);
 
         aux = aux -> next;
 
     }
+
+}
+
+Node * searchreg ( Node ** list, int regis ) {
+
+    Node * aux = ( * list );
+
+    if ( empty (list) ) {
+
+        printf("\n\nEmpty - Search\n\n");
+
+        return NULL;
+
+    }
+
+    while ( aux != NULL ) {
+
+        if ( aux -> info.regis == regis ) {
+            return aux;
+        }
+
+        aux = aux -> next;
+
+    }
+
+    return NULL;
+
+}
+
+void transposition ( Node ** list, char * name ) {
+
+		Node * aux = ( * list );
+
+		Node * ant = NULL;
+
+		if ( empty ( list ) ) {
+
+            printf("\nEmpty - Transposition\n"); return;
+
+		}
+
+		while ( aux != NULL || strcmp ( aux -> info.name, name) == 0 ) {
+
+			ant = aux;
+
+			aux = aux -> next;
+
+		}
+
+		if ( aux == NULL ) {
+
+            printf("\nNot Found - Transposition\n"); return;
+
+		} else {
+
+            printf("\n\n%s - %d\n\n", aux -> info.name, aux -> info.regis);
+
+            Info tmp = ant -> info;
+
+            ant -> info = aux -> info;
+
+            aux -> info = tmp;
+
+		}
 
 }
