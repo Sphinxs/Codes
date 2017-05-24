@@ -1,12 +1,4 @@
 
-/*
-
-	1 - Imprimir o início da fila sem desenfileirar o elemento.
-	
-	2 - Liberar Fila.
-
-*/
-
 # include <time.h>
 
 # include <stdio.h>
