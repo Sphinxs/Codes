@@ -1,47 +1,44 @@
 # Codes
 
-Códigos aleatórios em C / C ++
+Códigos aleatórios em C || C ++ :battery:
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/10e10a97abbc46bfa8ebfcf334a5038f)](https://www.codacy.com/app/Sphinxs/Codes?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sphinxs/Codes&amp;utm_campaign=Badge_Grade)
 
+
 ## Meios de estudo
 
-    1º Code-reference.com
+[Code Reference](https://code-reference.com/)
   
-    2º Br-c.org
+[Br C](http://br-c.org/doku.php)
+
+[C Tutorials Point](http://www.tutorialspoint.com/cprogramming/)
   
-    3º Tutorialspoint.com/cprogramming
-  
-    4º Tiexpert.net/programacao/c/index.php
-  
-    5º Urionlinejudge.com.br/judge/en/login
-    
-    6º Stackoverflow.com/questions/tagged/c
+[C Ti Expert](http://www.tiexpert.net/programacao/c/index.php)
+
+[C Language Stack Over Flow](https://stackoverflow.com/documentation/c/topics)
+
+[C Mais Mais](http://www.cmaismais.com.br/)
 
 ## Ferramentas
 
-      1º Gcc.gnu.org
-      
-      2º Cprogramming.com/g++.html
-      
-      3º Geany.org
-      
-      4º Codeblocks.org
-    
-      5º Atom.io/packages/linter-gcc
-      
-      6º Atom.io/packages/gpp-compiler
-      
-      7º Atom.io/packages/gcc-make-run
-      
-      8º Atom.io/packages/language-c
-      
+[Code Blocks](http://codeblocks.org/)
+
+[Atom](https://atom.io/)
+
+[Geany](http://geany.org/)
+
+[Visual Studio Code](https://code.visualstudio.com/)
+
+[Gcc Gnu](http://gcc.gnu.org/)
+
+[Linter C Lang](https://github.com/AtomLinter/linter-clang)
+
 ## Compilação Extra
 
-    1º clang -Wall Arquivo.cpp -o Executavel
+    clang -Wall Arquivo.cpp -o Executavel
     
-    2º gcc -Wall Arquivo.c -o Executavel
+    gcc -Wall Arquivo.c -o Executavel
     
-    3º g++ Executavel Arquivo.cpp
+    g++ Executavel Arquivo.cpp
     
-    4º make Arquivo || make Arquivo.cpp && ./Arquivo
+    make Arquivo || make Arquivo.cpp && ./Arquivo
