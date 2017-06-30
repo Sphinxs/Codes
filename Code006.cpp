@@ -6,37 +6,35 @@
 # include <string.h>
 
 
-typedef struct Pessoa {
-
-    char marca[20], cor[15];
-
+typedef struct {
+    char marca [20], cor [15];
     int portas, preco;
-
 } Peso;
 
 
-int main (void) {
+int main ( void ) {
 
     Peso carro;
 
-    FILE *bin;
-    
+    FILE * bin;
+
+
     bin = fopen ( "informacoes.bin", "rb" );
 
-    if ( bin == NULL ) {
+    if ( bin == NULL )
+        exit ( 1 );
 
-        exit(1);
 
-    }
-    
-        int gravado;
+    int gravado;
 
-        gravado = fread( &carro , sizeof(Peso), 1, bin);
-        
-                printf("%s %s %i %i",carro.marca,carro.cor,carro.portas,carro.preco);
+    gravado = fread ( &carro , sizeof ( Peso ), 1, bin );
 
-    fclose(bin); 
-    
+    printf ( "\n%s %s %i %i", carro.marca, carro.cor, carro.portas, carro.preco );
+
+
+    fclose ( bin );
+
+
     return 0;
-    
+
 }

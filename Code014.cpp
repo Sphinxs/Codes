@@ -17,8 +17,7 @@ static int Items = 0;
 
 
 typedef struct {
-	char nick [Lenstr];
-	char element [Lenstr];
+	char nick [Lenstr], element [Lenstr];
 	int strength;
 } Info;
 
@@ -71,9 +70,9 @@ int main ( int argv, const char * argc [] ) {
 	initialize ( &fl1 ); initialize ( &fl2 );
 
 
-	unsigned int out = 0; // Exit
+	unsigned int out = 0;
 
-	unsigned int cho = 0; // Choose
+	unsigned int cho = 0;
 
 
 	do {
@@ -136,7 +135,9 @@ int main ( int argv, const char * argc [] ) {
 		}
 
 		printf ("\nZero to go out or other digit to continue : ");
-		scanf ("%u", &out); clear ();
+		scanf ("%u", &out);
+
+		clear ();
 
 	} while ( out != 0 );
 
@@ -355,7 +356,7 @@ void helpdes ( Queue * fl1, Queue * fl2 ) {
 void show ( Queue * fl ) {
 
 	if ( empty ( fl ) ) {
-		
+
 		printf ("\nQueue is empty - Show Queue\n\n"); return;
 
 	}
@@ -365,9 +366,9 @@ void show ( Queue * fl ) {
 	Info temp;
 
 	clear (); puts ("\nQueue\n");
-	
+
 	while ( empty ( fl ) != 1) {
-		
+
 		temp = des ( fl );
 
 		printf ("\n\t%s - %s - %d\n", temp.nick, temp.element, temp.strength);

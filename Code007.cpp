@@ -8,18 +8,18 @@
 # include <locale.h>
 
 
-int main ( int argc, char const *argv[] ) {
+int main ( int argc, char const * argv [] ) {
 
-	setlocale(LC_ALL,"");
+	setlocale ( LC_ALL, "" );
 
-	time_t resultado = time(NULL);
 
-	// Caso retorne ' -1 ' o valor retornado foi estourado ( Undexflow / Overflow )
+	time_t resultado = time ( NULL );
 
-    	if( resultado != -1) {
-        	printf("\n\nHora da execução: %s\n", asctime(gmtime(&resultado)), (uintmax_t)resultado);
-	}
+
+    if( resultado != -1 )
+        printf("\n\nExecução: %s\n", asctime ( gmtime ( &resultado ) ), ( uintmax_t ) resultado );
+
 
 	return 0;
- 
+
 }

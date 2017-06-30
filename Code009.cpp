@@ -6,8 +6,6 @@
 # include <stdbool.h>
 
 
-//
-
 # define max 50
 
 int inst;
@@ -15,23 +13,21 @@ int inst;
 int stack [max];
 
 
-//
-
 void construct ();
 
 bool empty ();
 
-void push (int value);
+void push ( int value );
 
-bool pop (int &send);
+bool pop ( int &send );
 
 int items ();
 
-// 
 
 int main ( void ) {
 
 	int trash = 0;
+
 
 	construct();
 
@@ -39,42 +35,55 @@ int main ( void ) {
 
 	pop(trash);
 
+
 	return 0;
 
 }
 
 
 void construct () {
+
 	inst = -1;
+
 }
 
 
 bool empty () {
-	if (inst == -1) {
+
+	if ( inst == -1 )
 		return true;
-	} else {
+
+	else
 		return false;
-	}
+
 }
 
 
-void push (int value) {
-	if(inst >= max){
+void push ( int value ) {
+
+	if(inst >= max)
 		exit(1);
-	} else{
+
+	else {
 		inst ++; stack[inst] = value;
-	} 
+	}
+
 }
 
 
-bool pop (int &send) {
-	if(inst < 1){
+bool pop ( int &send ) {
+
+	if ( inst < 1 )
 		exit(1);
-	} else {
+
+	else {
 		send = stack[inst]; inst --;
 	}
+
 }
 
 int items () {
+
 	return inst + 1;
+
 }

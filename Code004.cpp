@@ -1,96 +1,91 @@
 
-#include <stdio.h>
+# include <stdio.h>
 
-typedef struct sEnd{
-        char rua[30];
+
+typedef struct {
+        char rua [30];
         int num;
 } Endereco;
 
-typedef struct sFornecedor{
-        char nome[30];
+typedef struct {
+        char nome [30], telefone [20];
         int produtos;
         Endereco end;
-        char telefone[20];
 } Fornecedor;
 
-void imprime(Fornecedor *forn, int ini, int fim){
 
-    if(ini<= fim){
+void imprime ( Fornecedor * forn, int ini, int fim ) {
 
-        printf("\n\nDados do fornecedor %d:\n", ini+1);
+    if ( ini <= fim ) {
 
-        printf("Nome: %s\n", forn[ini].nome);
+        printf ( "\n\nDados do fornecedor %d:\n", ini + 1 );
 
-        printf("Produtos: %d\n", forn[ini].produtos);
+        printf ( "Nome: %s\n", forn [ini].nome );
 
-        printf("Telefone %s\n", forn[ini].telefone);
+        printf ( "Produtos: %d\n", forn [ini].produtos );
 
-        printf("Rua: %s\n", forn[ini].end.rua);
+        printf ( "Telefone %s\n", forn [ini].telefone );
 
-        printf("Numero: %d\n", forn[ini].end.num);
+        printf ( "Rua: %s\n", forn [ini].end.rua );
 
-        imprime(forn, ini+1, fim);
+        printf ( "Numero: %d\n", forn [ini].end.num );
+
+        imprime ( forn, ini + 1, fim );
 
     }
+
 }
 
 
-int main() { 
+int main ( void ) {
 
-    FILE* f;
+    FILE * f;
 
 
-    f = fopen("forn.bin", "rb");
+    f = fopen ( "forn.bin", "rb" );
 
-    if(f == NULL){
+    if ( f == NULL ) {
+       return 1;
 
-       printf("Arquivo não existe!\n");
 
-       system("pause");
+    int n = 0;
 
-       return 0;
-    }
+    fread ( &n, sizeof( int ), 1, f );
 
-    int n;
+    Fornecedor * forn;
 
-    fread(&n, sizeof(int), 1, f);
+    forn = ( Fornecedor * ) calloc ( 1, sizeof ( Fornecedor ) );
 
-    Fornecedor *forn;
 
-    forn = (Fornecedor*) malloc (n*sizeof(Fornecedor));
+    fread ( forn, sizeof ( Fornecedor ), n, f );
 
-    //Lendo do arquivo
 
-    fread(forn, sizeof(Fornecedor), n, f);
-
-    //Imprimindo os dados
-
-    imprime(forn, 0, n-1);
+    imprime ( forn, 0, n - 1 );
 
 
     int i;
 
-    int ind = 0, maior = forn[0].produtos;
+    int ind = 0, maior = forn [0].produtos;
 
-    for(i=0; i<n; i++){
+    for ( i = 0; i < n; i++ ) {
 
-          if(forn[i].produtos > maior){
+         if ( forn [i].produtos > maior ) {
 
-             maior = forn[i].produtos;
+            maior = forn [i].produtos;
 
-             ind = i;
+            ind = i;
 
-          }
+        }
 
     }
 
-    printf("\n\nO fornecedor com mais produtos eh: %s\n", forn[ind].nome);
+    printf ( "\n\nFornecedor com mais produtos : %s\n", forn[ind].nome );
+
 
     free(forn);
 
     fclose(f);
 
-    system("pause");
 
     return 0;
 

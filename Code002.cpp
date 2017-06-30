@@ -1,33 +1,33 @@
 
-# include <stdio.h> 
+# include <stdio.h>
 
 # include <string.h>
 
-void imprimeDecrescente(char *vet, int ini, int fim){
 
-     if(ini <= fim){
+void decrescente ( char * vet, int ini, int fim ){
 
-        imprimeDecrescente(vet, ini+1, fim);
+    if ( ini <= fim ) {
 
-        printf("%c", vet[ini]);
+        decrescente ( vet, ini + 1, fim );
 
-     }
+        printf ( "%c", vet [ini] );
 
-     return;
+    }
+
+    return;
 
 }
 
-int main () {
+int main ( void ) {
 
-    char vetor[100];
+    char vetor [100];
 
-    gets(vetor);
 
-    imprimeDecrescente(vetor, 0, strlen(vetor)-1);
+    gets ( vetor );
 
-    printf("\n");
+    decrescente ( vetor, 0, strlen( vetor ) - 1 );
 
-    system("pause");
 
     return 0;
+
 }

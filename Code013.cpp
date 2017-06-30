@@ -9,7 +9,6 @@
 
 # include <stdbool.h>
 
-
 # define max 15
 
 
@@ -24,30 +23,30 @@ typedef struct {
 } list;
 
 
-// Prototipos
+void limpa ();
 
-void limpa (); // Limpa a tela
+void inicializa (list * dados);
 
-void inicializa (list * dados); // Inicializa a estrutura
+void addfinal (list * dados, const char nome[], const float preco);
 
-void addfinal (list * dados, const char nome[], const float preco); // Adiciona um item no final
+int tamanho (const list * dados);
 
-int tamanho (const list * dados); // Retorna o tamanho da lista
+float maiorprec (const list * dados);
 
-float maiorprec (const list * dados); // Retorna o maior valor em float
+void imprimi (const list * dados);
 
-void imprimi (const list * dados); // Imprime todos os dados da estrutura
-
-void addposn (list * dados, const int indice, const char nome[], const float preco); // Adiciona na posição do indice informado
+void addposn (list * dados, const int indice, const char nome[], const float preco);
 
 
 int main ( int argv, const char * argc [] ) {
 
-	setlocale(LC_ALL, "");
+	setlocale ( LC_ALL, "" );
+
 
 	list dados;
 
 	int escolha = 0;
+
 
 	do {
 
@@ -77,12 +76,12 @@ int main ( int argv, const char * argc [] ) {
 				printf("\nInforme o preço : ");
 				scanf("%f", &preco);
 
-				// Não remover o espaço - Complicações do linux com buffer
-
 				printf("\nInforme o nome : ");
 				scanf(" %s", nome);
 
-				addfinal (&dados, nome, preco); limpa();
+				addfinal (&dados, nome, preco);
+
+				limpa();
 
 			break;
 
@@ -114,8 +113,6 @@ int main ( int argv, const char * argc [] ) {
 				printf("\nInforme o preço para posição informada : ");
 				scanf("%f", &prec);
 
-				// Não remover o espaço - Complicações do linux com buffer
-
 				printf("\nInforme o nome  para posição informada : ");
 				scanf(" %s", nom);
 
@@ -124,12 +121,15 @@ int main ( int argv, const char * argc [] ) {
 			break;
 
 			default:
-				limpa(); printf("\nOpção invalida !\n");
-			break;
+
+				limpa();
+
+				printf("\nOpção invalida !\n");
 
 		}
 
 	} while ( true );
+
 
 	return 0;
 
@@ -137,14 +137,19 @@ int main ( int argv, const char * argc [] ) {
 
 
 void limpa () {
+
 	system("clear || cls");
+
 }
 
 void inicializa (list * dados) {
+
 	dados -> ultimo = -1;
+
 }
 
 void addfinal (list * dados, const char nome[], const float preco) {
+
 	if ( dados -> ultimo >= max ) {
 
 		printf("\nErro na estrutura !\n"); exit(1);
@@ -158,19 +163,26 @@ void addfinal (list * dados, const char nome[], const float preco) {
 		dados -> itens[dados -> ultimo].preco = preco;
 
 	}
+
 }
 
 int tamanho (const list * dados) {
+
 	if (dados -> ultimo <= -1)
 		return -1;
+
 	else
 		return dados -> ultimo + 1;
+
 }
 
 float maiorprec (const list * dados) {
+
 	if(dados -> ultimo <= -1) {
 
-		printf("\nErro - Estrutura vazia !\n"); exit(1);
+		printf("\nErro - Estrutura vazia !\n");
+
+		exit(1);
 
 	} else {
 
@@ -179,19 +191,25 @@ float maiorprec (const list * dados) {
 		register int con = 0;
 
 		for ( ; con < dados -> ultimo; con ++ ) {
+
 			if (dados -> itens [dados -> ultimo].preco > maior)
 				maior = dados -> itens [dados -> ultimo].preco;
+
 		}
 
 		return maior;
 
 	}
+
 }
 
 void imprimi (const list * dados) {
+
 	if (dados -> ultimo <= -1) {
 
-		printf("\nImpossível imprimir os dados, estrutura vazia !\n"); exit(1);
+		printf("\nImpossível imprimir os dados, estrutura vazia !\n");
+
+		exit(1);
 
 	} else {
 
@@ -199,14 +217,15 @@ void imprimi (const list * dados) {
 
 		printf("\nTodos os dados da estrutura :\n");
 
-		for ( ; con <= dados -> ultimo; con ++ ) {
+		for ( ; con <= dados -> ultimo; con ++ )
 			printf("\n\n\t%s - %.2f\n", dados -> itens[con].nome, dados -> itens[con].preco);
-		}
 
 	}
+
 }
 
 void addposn (list * dados, const int indice, const char nome[], const float preco) {
+
 	if (indice > dados -> ultimo) {
 
 		printf("\nIndice maior que disponível !\n"); exit(1);
@@ -221,12 +240,13 @@ void addposn (list * dados, const int indice, const char nome[], const float pre
 
 		int con = dados -> ultimo;
 
-		for ( ; con > dados -> ultimo; con -- ) {
+		for ( ; con > dados -> ultimo; con -- )
 			dados -> itens [con] = dados -> itens[con - 1];
-		}
 
 		strcpy(dados -> itens[indice].nome, nome);
 
 		dados -> itens[indice].preco = preco;
+
 	}
+
 }

@@ -1,89 +1,82 @@
 
-#include <stdio.h> 
+# include <stdio.h>
 
 
-typedef struct sEnd{
-        char rua[30];
+typedef struct {
+        char rua [30];
         int num;
 } Endereco;
 
-typedef struct sFornecedor{
-        char nome[30];
+typedef struct {
+        char nome [30];
         int produtos;
+        char telefone [20];
         Endereco end;
-        char telefone[20];
 } Fornecedor;
 
-void buf () {
-        setbuf(stdin,NULL);
-}
+
+int main ( void ) {
+
+    FILE * f;
 
 
-int main (void) {
+    f = fopen ( "forn.txt", "w" );
 
-    FILE* f;
-
-    f = fopen("forn.txt", "w");
-
-    if(f == NULL){
-
-       printf("Arquivo não existe!\n");
-
-       system("pause");
-
+    if ( f == NULL ) {
        return 1;
-    }
+
 
     int n = 0;
 
-    printf("Digite o numero de fornecedores:\n");
-    scanf("%d", &n);
+    printf ( "Numero de fornecedores : ");
+    scanf ( "%d", &n );
 
-    //Gravando no arquivo
+    fprintf ( f, "%d\n", n );
 
-    fprintf(f, "%d\n", n);
 
-    Fornecedor *forn;
+    Fornecedor * forn;
 
-    forn = (Fornecedor*) malloc (n*sizeof(Fornecedor));
+    forn = ( Fornecedor * ) calloc ( 1, sizeof ( Fornecedor ) );
 
     int i = 0;
 
-    for( ; i<n; i++){
+    for ( ; i<n; i++ ) {
 
-        printf("Digite o nome do fornecedor:\n"); buf();
-        gets(forn[i].nome);
+        setbuf ( stdin, NULL);
 
-        printf("Digite a quantidade de produtos:\n");
-        scanf("%d", &forn[i].produtos);
+        printf("\nNome do fornecedor : \n");
+        gets ( forn[i].nome );
 
-        printf("Digite o telefone do fornecedor:\n"); uf();
-        gets(forn[i].telefone);
+        printf("\nQuantidade de produtos : \n");
+        scanf ( "%d", &forn[i].produtos );
 
-        printf("Digite os dados de endereco:\n");
+        printf ("\nTelefone do fornecedor : \n");
+        gets ( forn[i].telefone );
 
-        printf("Digite o nome da rua:\n"); uf();
-        gets(forn[i].end.rua);
+        printf ("\nDigite o nome da rua : \n");
+        gets ( forn[i].end.rua );
 
-        printf("Digite o numero:\n"); buf();
-        scanf("%d", &forn[i].end.num);
+        printf("\nDigite o numero : \n");
+        scanf ( "%d", &forn[i].end.num );
 
-        //Gravando no arquivo
 
-        fprintf(f, "%s\n", forn[i].nome);
+        fprintf ( f, "%s\n", forn[i].nome);
 
-        fprintf(f, "%d\n", forn[i].produtos);
+        fprintf ( f, "%d\n", forn[i].produtos);
 
-        fprintf(f, "%s\n", forn[i].telefone);
+        fprintf ( f, "%s\n", forn[i].telefone);
 
-        fprintf(f, "%s\n", forn[i].end.rua);
+        fprintf ( f, "%s\n", forn[i].end.rua);
 
-        fprintf(f, "%d\n", forn[i].end.num);
+        fprintf ( f, "%d\n", forn[i].end.num);
+
     }
 
-    free(forn);
 
-    fclose(f);
+    free ( forn );
+
+    fclose ( f );
+
 
     return 0;
 

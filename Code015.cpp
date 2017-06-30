@@ -4,13 +4,11 @@
 
 # include <string.h>
 
-
-# define Qt 10 // Quantidade máxima de itens
+# define Qt 10
 
 
 typedef struct {
-        char name[40];
-        char label[40];
+        char name [40], label [40];
         int pages;
 } Info;
 
@@ -20,21 +18,21 @@ typedef struct {
 } Stack;
 
 
-void initialize ( Stack * pilha ); // Inicializa a pilha
+void initialize ( Stack * pilha );
 
-int empty ( Stack * pilha ); // Verifica se está vazia
+int empty ( Stack * pilha );
 
-int full ( Stack * pilha ); // Verifica se está cheia
+int full ( Stack * pilha );
 
-int push ( Stack * pilha, Info data ); // Adiciona no topo
+int push ( Stack * pilha, Info data );
 
-Info pop ( Stack * pilha ); // Deleta do topo
+Info pop ( Stack * pilha );
 
-Info head ( Stack * pilha ); // Retorna topo sem deletar
+Info head ( Stack * pilha );
 
-void show ( Stack * pilha ); // Imprime deletando
+void show ( Stack * pilha );
 
-void showemp ( Stack * pilha ); // Imprime sem deletar
+void showemp ( Stack * pilha );
 
 
 int main ( int argv, const char * argc [] ) {
@@ -50,35 +48,35 @@ int main ( int argv, const char * argc [] ) {
 
 
     {
-        Info tp1; strcpy( tp1.name, "Darth" ); strcpy ( tp1.label, "Sci-fy"), tp1.pages = 200; // 3 º
-        
-        Info tp2; strcpy( tp2.name, "Yoda" ); strcpy ( tp2.label, "Sci-fy"), tp2.pages = 300; // 2 º
-        
-        Info tp3; strcpy( tp3.name, "Luke" ); strcpy ( tp3.label, "Sci-fy"), tp3.pages = 400; // 1 º
+        Info tp1; strcpy( tp1.name, "Darth" ); strcpy ( tp1.label, "Sci-fy"), tp1.pages = 200; // 3 ï¿½
+
+        Info tp2; strcpy( tp2.name, "Yoda" ); strcpy ( tp2.label, "Sci-fy"), tp2.pages = 300; // 2 ï¿½
+
+        Info tp3; strcpy( tp3.name, "Luke" ); strcpy ( tp3.label, "Sci-fy"), tp3.pages = 400; // 1 ï¿½
 
         push ( &pilha, tp1 );
-   
+
     	push ( &pilha, tp2 );
-    
+
     	push ( &pilha, tp3 );
     }
 
 
     /*
-    
+
         Info test; test = pop ( &pilha );
 
         printf ("\n%s - %s - %d\n\n", test.name, test.label, test.pages);
 
         test = head ( &pilha );
-        
+
         printf ("\n%s - %s - %d\n\n", test.name, test.label, test.pages);
-        
+
     */
 
 
-	showemp ( &pilha );
-		
+    showemp ( &pilha );
+
     show ( &pilha );
 
 
@@ -88,15 +86,15 @@ int main ( int argv, const char * argc [] ) {
 
 
 void initialize ( Stack * pilha ) {
-        
+
     pilha -> top = -1; return;
 
 }
 
 int empty ( Stack * pilha ) {
-        
+
     if ( pilha -> top <= -1 ) return 1;
-        
+
     return 0;
 
 }
@@ -152,43 +150,43 @@ void show ( Stack * pilha ) {
     if ( empty ( pilha ) ) return;
 
     Info temp;
-        
+
     int top = 0;
-        
+
     for ( ; top <= ( pilha -> top ); top ++ ) {
 
         temp = pop ( pilha );
 
         printf ("\n%s - %s - %i\n", temp.name, temp.label, temp.pages);
-                
+
     }
 
 }
 
 void showemp ( Stack * pilha ) {
-	
+
 	if ( empty ( pilha ) ) return;
-	
+
 	Info tmp;
-	
+
 	Stack aux;
-	
+
 	initialize ( &aux );
-	
+
 	while ( pilha -> top != -1 ) {
-		
+
 		tmp = pop ( pilha );
-		
+
 		printf ("\n%s - %s - %d\n\n", tmp.name, tmp.label,  tmp.pages );
-		
+
 		push ( &aux, tmp );
-			
+
 	}
-	
+
 	while ( aux.top != -1 ) {
-		
+
 		push ( pilha, pop ( &aux ) );
-			
+
 	}
-	
+
 }

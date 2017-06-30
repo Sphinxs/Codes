@@ -11,14 +11,14 @@
 
 
 typedef struct {
-    char snome[25];
+    char snome [25];
     int episodios, nota;
 } Seriado;
 
 typedef struct Prov {
-    char anome[25];
+    char anome [25];
     int assistidos;
-    Seriado series[20];
+    Seriado series [20];
 } Aluno;
 
 
@@ -31,11 +31,15 @@ void CadSerie (Aluno * Point, const int * Tam);
 void ImpAluno (Aluno * Point, const int * Tam);
 
 
-int main ( void ) { setlocale(LC_ALL,"");
+int main ( void ) {
+
+    setlocale(LC_ALL,"");
+
 
     int Tam = 0, Escolha = 0;
 
     Aluno Dados[3];
+
 
     while ( true ) {
 
@@ -44,9 +48,9 @@ int main ( void ) { setlocale(LC_ALL,"");
         printf("\nInforme sua escolha : ");
         scanf("%d", &Escolha);
 
-        setbuf(stdin , NULL);
+        setbuf ( stdin , NULL );
 
-        switch (Escolha) {
+        switch ( Escolha ) {
 
             case 1:
                 Clear (); CadAluno (Dados, &Tam);
@@ -61,21 +65,27 @@ int main ( void ) { setlocale(LC_ALL,"");
 			break;
 
             default:
-                Clear (); exit(1);
+
+                Clear ();
+
+                exit(1);
 
         }
 
     }
 
+
+    return 0;
+
 }
 
 
 void Clear () {
-    system("clear || cls");
+    system ("clear || cls");
 }
 
 
-void CadAluno (Aluno * Point, int * Tam) {
+void CadAluno ( Aluno * Point, int * Tam ) {
 
     if ( * Tam < 3 ) {
 
@@ -83,10 +93,10 @@ void CadAluno (Aluno * Point, int * Tam) {
 
         * Tam += 1;
 
-        setbuf(stdin, NULL);
+        setbuf ( stdin, NULL );
 
         printf("\nInforme o nome do aluno : ");
-        fgets(Point[* Tam].anome, 25, stdin);
+        fgets( Point[*Tam].anome, 25, stdin );
 
 		Clear ();
 
@@ -99,29 +109,36 @@ void CadAluno (Aluno * Point, int * Tam) {
 }
 
 
-void CadSerie (Aluno * Point, const int * Tam) {
+void CadSerie ( Aluno * Point, const int * Tam ) {
 
     register int Con = 0, Indice = 0;
 
     char Nome [25];
 
+
     printf("\nInforme o nome do aluno que deseja cadastrar a (s) série (s) : ");
     fgets(Nome, 25, stdin);
 
+
     for ( ; Con < 3; Con ++ ) {
-        if ( strcasecmp(Nome, Point[Con].anome) == 0){
-            Indice = Con; // break; printf("\n\nCadastro de séries do aluno %s :\n",Point[Con].anome);
-        }
+
+        if ( strcasecmp(Nome, Point[Con].anome) == 0)
+            Indice = Con;
+
     }
 
-	if (Indice == 0) {
+	if ( Indice == 0 ) {
+
 			Clear (); printf("\nNenhum aluno com esse nome foi encontrado !\n");
-	} else {
 
-		// ...
+    } else {
 
-		if (Point[Indice].assistidos >= 20) {
-			printf("\nChegou ao limite de séries cadastradas para este usuário !\n"); exit(1);
+		if ( Point[Indice].assistidos >= 20 ) {
+
+			printf("\nChegou ao limite de séries cadastradas para este usuário !\n");
+
+            exit(1);
+
 		} else {
 
 			// setbuf(stdin, NULL);
@@ -144,23 +161,26 @@ void CadSerie (Aluno * Point, const int * Tam) {
 		}
 
 	}
+
 }
 
 
-void ImpAluno (Aluno * Point, const int * Tam) {
+void ImpAluno ( Aluno * Point, const int * Tam ) {
 
 	int Con = 1;
 
 	if ( * Tam > 0 ) {
+
 		Clear ();
 
-		for ( ; Con <= * Tam; Con ++ ) {
+		for ( ; Con <= * Tam; Con ++ )
 			printf("\n\t%d - Aluno %s já assistiu %d séries.\n", Con, Point[Con].anome,Point[Con].assistidos);
-		}
 
 	} else {
 
-		Clear (); printf("\nImpossível imprimir pois nenhum aluno foi cadastrado !\n");
+		Clear ();
+
+        printf("\nImpossível imprimir pois nenhum aluno foi cadastrado !\n");
 
 	}
 

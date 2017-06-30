@@ -1,65 +1,68 @@
 
-# include <stdio.h> 
+# include <stdio.h>
 
-typedef struct sPes {
-        char nome[30];
+
+typedef struct {
+        char nome [30];
         int idade;
 } Pessoa;
 
-int main(){
 
-    FILE* f;
+int main ( void ) {
 
-    f = fopen("dados.txt", "r");
+    Pessoa * v;
 
-    if(f == NULL){
+    int n;
 
-       printf("Arquivo não existe !\n");
+    FILE * f;
 
-       system("pause");
 
-       return 0;
-    }
+    f = fopen ( "dados.txt", "r" );
 
-        int n;
+    if ( f == NULL ){
+       return 1;
 
-        fscanf(f, "%d", &n);
+    fscanf ( f, "%d", &n );
 
-        Pessoa *vet;
 
-        vet = (Pessoa*) malloc (n*sizeof(Pessoa));
+    v = ( Pessoa * ) calloc ( 1, sizeof ( Pessoa ) );
 
-        int maior, ind;
-        
-        int register i = 0;
 
-        for( ; i<n; i++){
+    int maior, ind;
 
-            fscanf(f, "%s", vet[i].nome);
+    int register i = 0;
 
-            fscanf(f, "%d", &vet[i].idade);
 
-            if(i==0){ // Primeira Leitura
-                 maior = vet[i].idade;
-                 ind = i;
-            }
+    for ( ; i<n; i++ ) {
 
-            // Encontrando a pessoa mais velha
+        fscanf ( f, "%s", v[i].nome );
 
-            if(vet[i].idade > maior){
-               maior = vet[i].idade;
-               ind = i;
-            }
+        fscanf ( f, "%d", &v[i].idade );
+
+        if ( i == 0 ) {
+
+            maior = v[i].idade;
+
+            ind = i;
+        }
+
+        if ( v [i].idade > maior ) {
+
+            maior = v[i].idade;
+
+            ind = i;
 
         }
 
-        printf("A pessoa mais velha chama-se %s e tem %d anos.\n", vet[ind].nome, vet[ind].idade);
+    }
 
-        free(vet);
+    printf("A pessoa mais velha chama-se %s e tem %d anos.\n", v [ind].nome, v [ind].idade);
 
-    fclose(f);
 
-    system("pause");
+    free ( v );
+
+    fclose ( f );
+
 
     return 0;
 
