@@ -8,11 +8,7 @@
 #### Compilação
 
 ```shell
-  clang -Wall Arquivo.cpp -o Executavel
-  
-  gcc -Wall Arquivo.c -o Executavel
-  
-  g++ Executavel Arquivo.cpp
+  clang file.cpp -o Executavel
   
   make
 ```
