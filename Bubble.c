@@ -1,24 +1,22 @@
 
 #include <stdio.h>
 
-void bubbleSort(int *vt, const int size)
+void bubbleSort(int vector[], const int size)
 {
     int cache = 0;
 
-    for (int i = 0; i < size; i++)
-    {
-        for (int h = i + 1; h < size; h++)
+    for (int counter = 0; counter < size; counter++)
+        for (int c = 0; c < size - 1; c++)
         {
-            if (vt[i] > vt[h])
+            if (vector[c] > vector[c + 1])
             {
-                cache = vt[h];
+                cache = vector[c];
 
-                vt[h] = vt[i];
+                vector[c] = vector[c + 1];
 
-                vt[i] = cache;
+                vector[c + 1] = cache;
             }
         }
-    }
 }
 
 int main()

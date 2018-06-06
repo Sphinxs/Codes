@@ -10,5 +10,5 @@ A data structure is a particular way of organizing and storing data in a compute
 #### Run
 
 ```shell
-  clang file.cpp -o Executavel
+  clang file.c || clang file.cpp
 ```
