@@ -113,9 +113,17 @@ class Queue
 
     void show(void)
     {
+        std::cout << "\nVector [";
+
         for (int counter = 0; counter <= this->size - 1; counter++)
-            std::cout << "\n"
-                      << this->vector[counter] << "\n";
+        {
+            if (counter == this->size - 1)
+                std::cout << this->vector[counter];
+            else
+                std::cout << this->vector[counter] << ", ";
+        }
+
+        std::cout << "]\n\n";
     }
 };
 
